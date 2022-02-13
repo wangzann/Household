@@ -11,7 +11,7 @@ import java.util.Objects;
 @Entity
 @Component
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer"})
-@Table(name = "householdPicture")
+@Table(name = "household_picture")
 @Proxy(lazy = false)
 public class HouseholdPicture implements Serializable {
     @Id
