@@ -1,6 +1,7 @@
 package com.hebtu.havefun.entity.household;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.hebtu.havefun.entity.activity.ActivityLocation;
 import com.hebtu.havefun.entity.activity.Picture;
 import org.hibernate.annotations.Proxy;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -26,12 +27,15 @@ public class Household implements Serializable {
     //名称
     @Column(name = "household_title")
     private String householdTitle;
+    //服务有效期
+    @Column(name = "household_time")
+    private Date householdTime;
     //价格
     @Column(name = "household_cost")
     private String householdCost;
     //家政种类
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Household_type_of_kind")
+    @JoinColumn(name = "household_type_of_kind")
     private HouseholdTypeOfKind householdTypeOfKind;
     //状态字段
     @Column(name = "status")
@@ -45,6 +49,10 @@ public class Household implements Serializable {
     //购买人数
     @Column(name = "buy_num")
     private Integer buyNum;
+    //Todo
+    //活动位置
+    @OneToOne(mappedBy = "household", cascade = CascadeType.ALL)
+    private HouseholdLocation householdLocation;
     //家政图片
     @OneToOne(mappedBy = "household", cascade = CascadeType.ALL)
     private HouseholdPicture householdPicture;
@@ -64,6 +72,14 @@ public class Household implements Serializable {
 
     public void setHouseholdTitle(String householdTitle) {
         this.householdTitle = householdTitle;
+    }
+
+    public Date getHouseholdTime() {
+        return householdTime;
+    }
+
+    public void setHouseholdTime(Date householdTime) {
+        this.householdTime = householdTime;
     }
 
     public String getHouseholdCost() {
@@ -122,11 +138,20 @@ public class Household implements Serializable {
         this.householdPicture = householdPicture;
     }
 
+    public HouseholdLocation getHouseholdLocation() {
+        return householdLocation;
+    }
+
+    public void setHouseholdLocation(HouseholdLocation householdLocation) {
+        this.householdLocation = householdLocation;
+    }
+
     @Override
     public String toString() {
         return "Household{" +
                 "householdId=" + householdId +
                 ", householdTitle='" + householdTitle + '\'' +
+                ", householdTime='" + householdTime + '\'' +
                 ", householdCost='" + householdCost + '\'' +
                 ", status=" + status +
                 ", releaseTime=" + releaseTime +

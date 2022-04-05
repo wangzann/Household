@@ -23,7 +23,7 @@ public class HouseholdTypeOfKind implements Serializable {
     private String typeName;
     @ManyToOne(cascade = CascadeType.ALL)
     //一对一关联对象
-    private HouseholdKind household_kind;
+    private HouseholdKind householdKind;
 
     public Integer getId() {
         return id;
@@ -41,12 +41,12 @@ public class HouseholdTypeOfKind implements Serializable {
         this.typeName = typeName;
     }
 
-    public HouseholdKind getHousehold_kind() {
-        return household_kind;
+    public HouseholdKind getHouseholdKind() {
+        return householdKind;
     }
 
-    public void setHousehold_kind(HouseholdKind household_kind) {
-        this.household_kind = household_kind;
+    public void setHouseholdKind(HouseholdKind householdKind) {
+        this.householdKind = householdKind;
     }
     @Override
     public int hashCode() {

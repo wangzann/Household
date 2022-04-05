@@ -14,7 +14,7 @@ import java.util.Set;
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer"})
 @Proxy(lazy = false)
 public class HouseholdKind implements Serializable {
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     //数据库表自增id

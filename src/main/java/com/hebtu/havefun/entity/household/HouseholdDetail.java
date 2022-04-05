@@ -1,12 +1,11 @@
 package com.hebtu.havefun.entity.household;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.hebtu.havefun.entity.activity.Activity;
-import com.hebtu.havefun.entity.activity.Picture;
 import org.hibernate.annotations.Proxy;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Component
@@ -14,7 +13,7 @@ import java.util.Set;
 @Table(name = "household_detail")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer"})
 @Proxy(lazy = false)
-public class HouseholdDetail {
+public class HouseholdDetail implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //数据库表自增id
