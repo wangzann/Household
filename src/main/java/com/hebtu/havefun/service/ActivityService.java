@@ -122,7 +122,7 @@ public class ActivityService {
 //    @Cacheable(value = "activity", key = "#activityId+'_getActivityDetail'")
     public String getActivityDetail(Integer activityId) {
         Activity activity = activityDao.getOne(activityId);
-        ActivityDetail activityDetail = activityDetailDao.findActivityDetailByActivity(activity);
+        ActivityDetail activityDetail = activityDetailDao. findActivityDetailByActivity(activity);
         return JSON.toJSONString(activityDetail);
     }
 
